@@ -32,7 +32,7 @@ CREATE TABLE `recordings` (
   `fcode_pass` varchar(20) DEFAULT NULL,
   `fcode_lang` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -55,7 +55,8 @@ INSERT INTO `recordings` VALUES
 (11,'welcome-salama','custom/Welcome_Salama','Welcome to Salama Services',0,NULL,NULL),
 (12,'busy-voicemail','custom/Bussy_Voicemail','Busy - leave voicemail',0,NULL,NULL),
 (13,'menu-arabic','custom/02_-','Arabic main menu',0,NULL,NULL),
-(14,'files-outworktime-voicemail','custom/Voicemail_File_AllNum','Files department out of hours voicemail message',0,NULL,NULL);
+(14,'files-outworktime-voicemail','custom/Voicemail_File_AllNum','Files department out of hours voicemail message',0,NULL,NULL),
+(15,'sales-busy-retry','custom/Bussy_and_Retry','Sales busy retry prompt (Egypt parity)',0,NULL,NULL);
 /*!40000 ALTER TABLE `recordings` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -68,4 +69,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-01-12  3:49:12
+-- Dump completed on 2026-01-12  5:06:03

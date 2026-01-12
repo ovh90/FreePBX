@@ -1,2 +1,2 @@
-extension	description	destination
-	Main-Inbound	timeconditions,1,1
+extension	description	destination	delay_answer
+	Main-Inbound	timeconditions,1,1	0

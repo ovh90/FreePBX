@@ -88,7 +88,7 @@ CREATE TABLE `ivr_entries` (
 LOCK TABLES `ivr_entries` WRITE;
 /*!40000 ALTER TABLE `ivr_entries` DISABLE KEYS */;
 INSERT INTO `ivr_entries` VALUES
-(1,'1','ivr-3,s,1',0),
+(1,'1','custom-menu-split,s,1',0),
 (1,'2','app-blackhole,hangup,1',0),
 (2,'1','ext-group,2000,1',0),
 (2,'3','ext-local,vms505,1',0),
@@ -108,4 +108,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-01-12  3:49:12
+-- Dump completed on 2026-01-12  5:06:03

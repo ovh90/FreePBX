@@ -1,0 +1,43 @@
+extension	name	voicemail
+101	MR. Youssef	default
+102	MS. Elham	default
+103	MS. Monica	default
+104	MS. Christina	default
+200	Alex Sales	novm
+201	Alex Sales 1 (Olivia)	default
+202	Alex Sales 2 (Avrosina)	default
+203	Alex Sales 3 (Mirana)	novm
+204	Alex Sales (Silvia)	default
+205	Cairo Sales	novm
+206	Cairo Sales 1 (Marina)	default
+207	Cairo Sales 2 (Marim W)	default
+208	Cairo Sales 3 (Marim W)	default
+209	Alex Sales (Nagy)	novm
+301	MS. Marian	default
+302	MS. Maha	default
+303	MS. Karen Akrm	default
+304	MS. Caroline Hany	default
+305	MS. Ojonei	default
+306	Karla	default
+401	Ms. Mariz Saber	default
+402	Ms. Amalide	default
+403	Ms. Amy	default
+501	Voicemail InWorkTime	default
+502	Voicemail OutWorkTime	default
+503	Voicemail YoussefShakwa	default
+504	FilesVoicemail	default
+505	Shakwa	default
+600	Extension 600	default
+601	Extension 601	default
+602	Extension 602	default
+603	Extension 603	default
+604	Extension 604	default
+605	Extension 605	default
+606	Extension 606	default
+607	Extension 607	default
+608	Extension 608	default
+609	Extension 609	default
+610	Extension 610	default
+999	Test	default
+1002	IT Micheal	novm
+5050	Malak Magdy Lawyer	novm

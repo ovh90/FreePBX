@@ -55,7 +55,8 @@ CREATE TABLE `ringgroups` (
 LOCK TABLES `ringgroups` WRITE;
 /*!40000 ALTER TABLE `ringgroups` DISABLE KEYS */;
 INSERT INTO `ringgroups` VALUES
-('2000','ringall',60,'','200-201-202-203-204-205-206-207-208',0,'ext-local,vms502,1','sales','',0,'',0,'Ring','','','','dontcare','yes','no','');
+('2000','ringall',60,'','200-201-202-203-204-205-206-207-208',0,'app-announcement-6,s,1','sales','',0,'',0,'Ring','','','','dontcare','yes','no',''),
+('2001','ringall',60,'','200-201-202-203-204-205-206-207-208',0,'app-announcement-7,s,1','sales-retry','',0,'',0,'Ring','','','','dontcare','yes','no','');
 /*!40000 ALTER TABLE `ringgroups` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -68,4 +69,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-01-12  3:49:12
+-- Dump completed on 2026-01-12  5:06:03

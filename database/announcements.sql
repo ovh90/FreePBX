@@ -33,7 +33,7 @@ CREATE TABLE `announcement` (
   `noanswer` tinyint(1) NOT NULL DEFAULT 0,
   `repeat_msg` varchar(2) NOT NULL DEFAULT '',
   PRIMARY KEY (`announcement_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,9 @@ INSERT INTO `announcement` VALUES
 (2,'Holiday-Announcement',5,0,'ext-local,vms502,1',0,0,''),
 (3,'All-Lines-Busy',10,0,'app-blackhole,hangup,1',0,0,''),
 (4,'Voicemail-Prompt',9,0,'ext-local,vms502,1',0,0,''),
-(5,'Files-OutWorkTime',14,0,'ext-local,vms504,1',0,0,'');
+(5,'Files-OutWorkTime',14,0,'ext-local,vms504,1',0,0,''),
+(6,'Sales-BusyRetry',15,0,'ext-group,2001,1',0,0,''),
+(7,'Voicemail-InWorkTime',12,0,'ext-local,vms501,1',0,0,'');
 /*!40000 ALTER TABLE `announcement` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +62,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-01-12  3:49:12
+-- Dump completed on 2026-01-12  5:06:03
