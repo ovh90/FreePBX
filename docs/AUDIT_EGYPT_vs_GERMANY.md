@@ -20,25 +20,22 @@ This document compares the **Egypt** production system (FreePBX 14 / Asterisk 13
 
 These existed in Egypt and had real data, but are not required for the current Germany call flow unless you decide to use them.
 
-- **Directory module data**
+- **Directory module data (intentionally NOT migrated)**
   - Egypt had `directory_details` and `directory_entries` populated (dial-by-extension directory).
-  - Germany currently has `directory` module installed but **no directory entries**.
-  - Recommendation: migrate if you want an “extension directory” option in IVRs.
+  - Germany currently has `directory` module installed but we **intentionally keep Directory empty** because callers can dial internal extensions directly (Directory not needed).
+  - If you ever want it back, re-import Egypt `directory_details` + `directory_entries`.
 
 - **Contact Manager data**
   - Egypt had Contact Manager groups and entries populated.
-  - Germany has the module, but data is currently empty.
-  - Recommendation: migrate if you want directory/contacts in UCP or caller-id lookups.
+  - Germany now includes the Egypt Contact Manager data (migrated).
 
 - **Fax users/config**
   - Egypt had `fax_users` populated.
-  - Germany currently has fax module but fax users are empty.
-  - Recommendation: migrate only if fax is actively used.
+  - Germany now includes the Egypt fax users/config (migrated).
 
 - **Superfecta inbound mappings**
   - Egypt had `superfecta_to_incoming` populated.
-  - Germany currently has it empty.
-  - Recommendation: migrate if you want inbound caller-id enhancement like Egypt.
+  - Germany now includes the Egypt `superfecta_to_incoming` mappings (migrated).
 
 ## Items intentionally not migrated (obsolete / not applicable)
 

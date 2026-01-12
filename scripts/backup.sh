@@ -28,6 +28,14 @@ mysqldump -u root asterisk incoming outbound_routes outbound_route_patterns outb
 mysqldump -u root asterisk vmblast vmblast_groups > database/vmblast.sql 2>/dev/null
 mysqldump -u root asterisk userman_users userman_groups userman_users_settings > database/userman.sql 2>/dev/null
 
+# Optional module data (Egypt parity)
+mysqldump -u root asterisk \
+  contactmanager_groups contactmanager_group_entries contactmanager_entry_numbers contactmanager_entry_emails \
+  > database/contactmanager.sql 2>/dev/null
+
+mysqldump -u root asterisk fax_details fax_users > database/fax.sql 2>/dev/null
+mysqldump -u root asterisk superfecta_to_incoming superfectaconfig > database/superfecta.sql 2>/dev/null
+
 # Copy config files
 log "Copying config files..."
 cp /etc/asterisk/pjsip.endpoint.conf config/ 2>/dev/null || true
@@ -36,6 +44,7 @@ cp /etc/asterisk/pjsip.auth.conf config/ 2>/dev/null || true
 cp /etc/asterisk/pjsip.registration.conf config/ 2>/dev/null || true
 cp /etc/asterisk/pjsip.transports.conf config/ 2>/dev/null || true
 cp /etc/asterisk/voicemail.conf config/ 2>/dev/null || true
+cp /etc/asterisk/extensions_custom.conf config/ 2>/dev/null || true
 
 # Copy sound files (only if changed)
 log "Syncing sound files..."

@@ -34,9 +34,21 @@
                                    │         │
                                    ▼         ▼
                     ┌──────────────────┐  ┌────────┐
-                    │   Main Menu      │  │ Hangup │
-                    │   (IVR 2 or 3)   │  └────────┘
+                    │ DID Split Router │  │ Hangup │
+                    │ custom-menu-split│  └────────┘
                     └──────────────────┘
+                           │
+               ┌───────────┴───────────┐
+               │                       │
+           DID 333/888             Other DIDs
+               │                       │
+               ▼                       ▼
+      ┌──────────────────┐     ┌──────────────────┐
+      │ Main-Menu-PSTN    │     │ Main-Menu-Mobile  │
+      │ (IVR 3)           │     │ (IVR 2)           │
+      └──────────────────┘     └──────────────────┘
+               │                       │
+               └───────────┬───────────┘
                            │
            ┌───────────────┼───────────────┐
            │               │               │
@@ -74,17 +86,37 @@
            ▼
     ┌─────────────────────────────────────────────┐
     │              Ring Group 2000                │
-    │  101,201,202,203,204,205,206,207,208,      │
-    │  301,302,303                                │
-    │  Ring Time: 20 seconds                      │
+    │  200,201,202,203,204,205,206,207,208        │
+    │  Ring Time: 60 seconds                      │
     └─────────────────────────────────────────────┘
                        │
-              No Answer (20s)
+              No Answer (60s)
+                       │
+                       ▼
+              ┌─────────────────────────┐
+              │ Sales-BusyRetry         │
+              │ Announcement            │
+              └─────────────────────────┘
+                       │
+                       ▼
+    ┌─────────────────────────────────────────────┐
+    │              Ring Group 2001                │
+    │        (Sales Retry - same members)         │
+    │  Ring Time: 60 seconds                      │
+    └─────────────────────────────────────────────┘
+                       │
+              No Answer (60s)
+                       │
+                       ▼
+              ┌─────────────────────────┐
+              │ Voicemail-InWorkTime    │
+              │ Announcement            │
+              └─────────────────────────┘
                        │
                        ▼
               ┌─────────────────┐
-              │  Voicemail 502  │
-              │  (Sales Out)    │
+              │  Voicemail 501  │
+              │  (Sales In)     │
               └─────────────────┘
 ```
 
@@ -93,7 +125,7 @@
 ### IVR 1: Recording-Consent
 | Option | Action |
 |--------|--------|
-| 1 | Accept recording → Main Menu (IVR 3 for PSTN) |
+| 1 | Accept recording → DID Split Router (`custom-menu-split`) → IVR 3 for DIDs 333/888, otherwise IVR 2 |
 | 2 | Decline recording → Hangup |
 | Invalid/Timeout | Ring Group 2000 |
 
@@ -141,7 +173,10 @@
 ## Trunk Routing
 
 ### Inbound
-- All inbound calls from GSM gateways → Holiday-Mode (TC 1)
+- All inbound calls → Holiday-Mode (TC 1)
+- After Recording-Consent, calls are split by DID:
+  - DID **333/888** → `Main-Menu-PSTN`
+  - All other DIDs → `Main-Menu-Mobile`
 
 ### Outbound
 - Dial 0 + number → YeastarGSMEgypt (Egypt gateway)

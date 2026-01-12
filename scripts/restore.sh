@@ -24,6 +24,11 @@ restore_database() {
     mysql -u root asterisk < "$BACKUP_DIR/database/routes.sql" 2>/dev/null && log "  - routes restored"
     mysql -u root asterisk < "$BACKUP_DIR/database/trunks.sql" 2>/dev/null && log "  - trunks restored"
     mysql -u root asterisk < "$BACKUP_DIR/database/userman.sql" 2>/dev/null && log "  - userman restored"
+
+    # Optional module data (Egypt parity)
+    mysql -u root asterisk < "$BACKUP_DIR/database/contactmanager.sql" 2>/dev/null && log "  - contactmanager restored"
+    mysql -u root asterisk < "$BACKUP_DIR/database/fax.sql" 2>/dev/null && log "  - fax restored"
+    mysql -u root asterisk < "$BACKUP_DIR/database/superfecta.sql" 2>/dev/null && log "  - superfecta restored"
     
     log "Database restore complete"
 }
@@ -44,6 +49,10 @@ restore_config() {
     # Note: These are generated files, may need fwconsole reload after
     cp "$BACKUP_DIR/config/voicemail.conf" /etc/asterisk/ 2>/dev/null || true
     chown asterisk:asterisk /etc/asterisk/voicemail.conf 2>/dev/null || true
+
+    # Custom dialplan additions (DID-based routing, etc.)
+    cp "$BACKUP_DIR/config/extensions_custom.conf" /etc/asterisk/extensions_custom.conf 2>/dev/null || true
+    chown asterisk:asterisk /etc/asterisk/extensions_custom.conf 2>/dev/null || true
     
     log "Config files restored"
 }

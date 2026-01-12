@@ -34,6 +34,7 @@
 └── docs/                    # Documentation
     ├── QUICK_RESTORE.md     # Fast restore guide
     ├── CALL_FLOW.md         # IVR call flow diagram
+    ├── AUDIT_EGYPT_vs_GERMANY.md  # Parity audit + decisions
     ├── IMPROVEMENTS.md      # Future improvements
     └── GUI_TASKS.md         # Tasks requiring GUI
 ```
@@ -49,16 +50,14 @@ See [docs/GUI_TASKS.md](docs/GUI_TASKS.md)
 ## Current Configuration Summary
 
 ### Extensions (PJSIP)
-- **101** - MR. Youssef
-- **201-208** - Staff extensions
-- **301-303** - Additional extensions
-- **403** - Special extension
-- **501-505** - Voicemail-only extensions
+- Full current inventory is exported to `config/extensions_list.txt` (source of truth).
+- Duplicates from Egypt (1011–1014, 2011/20112, 2021/20212, 2071/2072, etc.) are intentionally consolidated on Germany.
 
 ### Trunks
 | Trunk | Type | Purpose |
 |-------|------|---------|
-| YeastarGSMEgypt | PJSIP | GSM gateway in Egypt |
+| Yeastar-02 | PJSIP | FXO (landlines) gateway in Egypt |
+| YeastarGSM | PJSIP | GSM gateway in Egypt |
 | YeastarGSMCanada | PJSIP | GSM gateway in Canada |
 
 ### IVR Structure
@@ -68,6 +67,12 @@ See [docs/GUI_TASKS.md](docs/GUI_TASKS.md)
 | 2 | Main-Menu-Mobile | Menu for mobile callers |
 | 3 | Main-Menu-PSTN | Menu for PSTN callers |
 | 4 | File-Team-Entry | Enter file team extension |
+
+**DID-based menu split (Egypt behavior):**
+- After Recording-Consent, Germany routes:
+  - DID **333/888** → `Main-Menu-PSTN`
+  - All other DIDs → `Main-Menu-Mobile`
+  - Implemented in `config/extensions_custom.conf` (`custom-menu-split`)
 
 ### Time Conditions
 | ID | Name | Hours | Action |
@@ -79,7 +84,8 @@ See [docs/GUI_TASKS.md](docs/GUI_TASKS.md)
 ### Ring Groups
 | Number | Name | Extensions |
 |--------|------|------------|
-| 2000 | Sales | 101,201,202,203,204,205,206,207,208,301,302,303 |
+| 2000 | Sales | See `config/ringgroups_list.txt` (source of truth) |
+| 2001 | Sales Retry | Same members as 2000 |
 
 ### VMBlast Groups
 | Dial | Name | Voicemail |

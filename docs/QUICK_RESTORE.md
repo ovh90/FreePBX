@@ -63,6 +63,9 @@ mysql -u root asterisk < database/vmblast.sql
 mysql -u root asterisk < database/routes.sql
 mysql -u root asterisk < database/trunks.sql
 mysql -u root asterisk < database/userman.sql
+mysql -u root asterisk < database/contactmanager.sql
+mysql -u root asterisk < database/fax.sql
+mysql -u root asterisk < database/superfecta.sql
 ```
 
 ### 3.2 Copy Sound Files
@@ -112,22 +115,31 @@ See [GUI_TASKS.md](GUI_TASKS.md) for extension details.
 
 ## Phase 6: Trunk Configuration (GUI Required)
 
-### YeastarGSMEgypt
+### Yeastar-02 (Egypt FXO / landlines)
 1. Go to **Connectivity → Trunks → Add Trunk → PJSIP**
 2. Settings:
-   - Trunk Name: `YeastarGSMEgypt`
-   - SIP Server: `gsmegypt.hopto.org`
+   - Trunk Name: `Yeastar-02`
+   - SIP Server: `41.129.148.49`
    - SIP Server Port: `5060`
    - Username: `from-pstn`
    - Authentication: `Outbound`
    - Registration: `None`
 3. Under **pjsip Settings → Match (Permit)**:
-   - Add: `gsmegypt.hopto.org`
+   - Add: `41.129.148.49`
+
+### YeastarGSM (Egypt GSM)
+Same as above with:
+- Trunk Name: `YeastarGSM`
+- SIP Server Port: `5061`
 
 ### YeastarGSMCanada
-Same as above with:
-- Trunk Name: `YeastarGSMCanada`
-- SIP Server: `gsmcanda.hopto.org`
+1. Go to **Connectivity → Trunks → Add Trunk → PJSIP**
+2. Settings:
+   - Trunk Name: `YeastarGSMCanada`
+   - SIP Server: `gsmcanda.hopto.org`
+   - SIP Server Port: `8899`
+3. Under **pjsip Settings → Match (Permit)**:
+   - Add: `gsmcanda.hopto.org`
 
 ## Phase 7: Firewall (GUI Required)
 
