@@ -29,6 +29,7 @@ restore_database() {
     mysql -u root asterisk < "$BACKUP_DIR/database/contactmanager.sql" 2>/dev/null && log "  - contactmanager restored"
     mysql -u root asterisk < "$BACKUP_DIR/database/fax.sql" 2>/dev/null && log "  - fax restored"
     mysql -u root asterisk < "$BACKUP_DIR/database/superfecta.sql" 2>/dev/null && log "  - superfecta restored"
+    mysql -u root asterisk < "$BACKUP_DIR/database/dahdiconfig.sql" 2>/dev/null && log "  - dahdiconfig restored"
     
     log "Database restore complete"
 }

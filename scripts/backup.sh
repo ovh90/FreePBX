@@ -36,6 +36,11 @@ mysqldump -u root asterisk \
 mysqldump -u root asterisk fax_details fax_users > database/fax.sql 2>/dev/null
 mysqldump -u root asterisk superfecta_to_incoming superfectaconfig > database/superfecta.sql 2>/dev/null
 
+# DAHDI (installed for Egypt parity; may be unused if you have no DAHDI hardware)
+mysqldump -u root asterisk \
+  dahdi dahdi_advanced dahdi_advanced_modules dahdi_analog dahdi_analog_custom dahdi_configured_locations dahdi_modules dahdi_spans dahdichandids \
+  > database/dahdiconfig.sql 2>/dev/null
+
 # Copy config files
 log "Copying config files..."
 cp /etc/asterisk/pjsip.endpoint.conf config/ 2>/dev/null || true

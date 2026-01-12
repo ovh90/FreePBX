@@ -47,6 +47,20 @@ These existed in Egypt and had real data, but are not required for the current G
   - Egypt used dated time conditions (ex: “Holiday Jan 8 2026 …”).
   - Germany uses a **manual Holiday-Mode toggle** (override code `*28`) and separate WorkTime checks.
 
+## Egypt-only modules (availability notes)
+
+Egypt had several modules enabled that are not currently available/installable on Germany FreePBX 17 via the standard repos:
+
+- `cxpanel` (had users configured in Egypt)
+- `digium_phones`
+- `zulu` / `xmpp`
+- `restapi` (deprecated in FreePBX 16+)
+
+These are preserved as SQL exports in `docs/LEGACY_EGYPT_MODULES.md` and `database/egypt_legacy_*.sql`.
+
+Germany **did** install/migrate:
+- `dahdiconfig` (DAHDI settings) exported in `database/dahdiconfig.sql`
+
 ## Known differences to keep in mind
 
 - **Extension inventory differs** from early migration notes:
