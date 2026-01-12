@@ -1,0 +1,20 @@
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Note: SSL certificates ARE included in this repo
+# Make sure the repo is PRIVATE to protect sensitive data

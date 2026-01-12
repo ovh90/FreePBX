@@ -1,0 +1,4 @@
+trunkid	name	tech	channelid
+1	Yeastar-02	pjsip	Yeastar-02
+2	YeastarGSM	pjsip	YeastarGSM
+3	YeastarGSMCanada	pjsip	YeastarGSMCanada

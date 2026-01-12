@@ -1,0 +1,4 @@
+timeconditions_id	displayname	truegoto	falsegoto
+1	Holiday-Mode	app-announcement-2,s,1	timeconditions,2,1
+2	Sales-WorkTime	ivr-1,s,1	ext-local,vms502,1
+3	FileTeam-WorkTime	ivr-4,s,1	app-announcement-5,s,1
